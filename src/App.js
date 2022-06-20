@@ -3,6 +3,10 @@ import { useState } from "react";
 
 function App() {
   let addtask = () => {
+    if(tasklist==""){
+      alert("Enter your to do list!!!" ,window.location.reload())
+      
+    }
     settodoList([
       ...todoList,
       { id: todoList.length + 1, name: `${tasklist}`, isDone: false },
@@ -29,7 +33,7 @@ function App() {
   return (
     <div className="content">
       <h1>TO DO LIST</h1>
-      <input type="text" onChange={(e) => setTaskList(e.target.value)}></input>{" "}
+      <input type="text" placeholder="Enter Your To Do List!" onChange={(e) => setTaskList(e.target.value)}></input>{" "}
       <button onClick={addtask}>Add Task</button>
 
       <ul>
